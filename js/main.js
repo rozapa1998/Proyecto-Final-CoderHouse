@@ -18,8 +18,8 @@ class Producto {
 //-----------------------------------------------Carrito---------------------------------------------
 const Carrito = []
 
-function agregarCarrito(){
-    Carrito.push(producto1);
+function agregarCarrito(a){
+    Carrito.push(a);
 }
 
 
@@ -55,15 +55,6 @@ console.dir(buscarProcesador);
 let tarjetas = document.querySelector('#productos');
 
 let busqueda = document.querySelector('#resultados')
-
-let producto1 = {
-    nombre : "Ryzen 2600x",
-    marca : "AMD",
-    precio : 34000,
-    tipoHardware : "Procesador",
-    descripcion : "Clave en el rendimiento de tu computadora de escritorio, ya no tenés que pensar en cómo distribuir el tiempo y acciones porque ahora las tareas en simultáneo son posibles.",
-    img : "https://images-na.ssl-images-amazon.com/images/I/41OZu6uDTCL._SX500_SY500_CR,0,0,500,500_.jpg"
-};
 
 
 tarjetas.innerHTML = `
@@ -160,3 +151,33 @@ let boton = document.getElementById("agregarCarrito")
 
 //----------------------------------Visualizacion Carrito---------------------------------------------
 console.dir(Carrito)
+
+function AbrirCarrito(){
+    
+    var carritoCargado = document.querySelector('#navbarDarkDropdownMenuLinkCarrito');
+
+    carritoCargado.innerHTML = `
+    <div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>`
+
+}
+
+
+
+
+
