@@ -23,16 +23,20 @@
   
       <!-- Dropdown -->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="productos.html" id="navbardrop" data-toggle="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Productos
         </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Link 1</a>
-          <a class="dropdown-item" href="#">Link 2</a>
-          <a class="dropdown-item" href="#">Link 3</a>
-        </div>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="#">Teclados</a></li>
+          <li><a class="dropdown-item" href="#">Procesadores</a></li>
+          <li><a class="dropdown-item" href="#">Placas de video</a></li>
+          <li><a class="dropdown-item" href="#">Fuentes</a></li>
+          <li><a class="dropdown-item" href="#">Gabinetes</a></li>
+          <li><a class="dropdown-item" href="#">Memorias</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="productos.html">Todo</a></li>
+        </ul>
       </li>
-    </ul>
     
     
     <li class="nav-item">
@@ -55,7 +59,7 @@
 
       </footer>
 
-
+    <script src="bootstrap/bootstrap-5.0.0-beta3-dist/js/bootstrap.bundle.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
