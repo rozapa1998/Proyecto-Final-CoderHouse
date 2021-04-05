@@ -150,26 +150,29 @@ let boton = document.getElementById("agregarCarrito")
 
 
 //----------------------------------Visualizacion Carrito---------------------------------------------
-console.dir(Carrito)
 
-/*function agregarCarrito(){
-    
-    var carritoCargado = document.querySelector('#navbarDarkDropdownMenuLinkCarrito');
+    var VentanaModal = document.querySelector('#VentanaModal');
 
-    carritoCargado.innerHTML = `
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    VentanaModal.innerHTML = `
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tu Carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!---Trabajar con JS para agregar productos-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar cambios</button>
+        <button type="button" class="btn btn-success">Comprar</button>
       </div>
     </div>
   </div>
+</div>
     `
-
-}*/
 
 
 
