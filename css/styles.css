@@ -1,3 +1,13 @@
 .minor{
     size: 10px;
 }
+
+.indexbk{
+    background-image: url(../img/1.png);
+    background-size: 105%;
+}
+
+.contactobk{
+    background-image: url(../img/2.png);
+    background-size: 102%;
+}
