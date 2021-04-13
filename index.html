@@ -7,69 +7,105 @@
     <script src="https://kit.fontawesome.com/8ea0deaea7.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
     <title>Tech Shop</title>
 </head>
-<body class="indexbk">
+<header>
 <!----------------------------------------------------------- Navbar ------------------------------------------------------>  
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <!-- Brand -->
-    <a class="navbar-link" href="index.html"><img src="img/Logo Pag.png" alt=""></a>
-  
-    <!-- Links -->
-    <ul class="navbar-nav p-4">
-      <li class="nav-item fs-4">
-        <a class="nav-link" href="contacto.html">Contacto</a>
-      </li>
-      
-  
-      <!-- Dropdown -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle fs-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Productos
-        </a>
-        <ul class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="#">Teclados</a></li>
-          <li><a class="dropdown-item" href="#">Procesadores</a></li>
-          <li><a class="dropdown-item" href="#">Placas de video</a></li>
-          <li><a class="dropdown-item" href="#">Fuentes</a></li>
-          <li><a class="dropdown-item" href="#">Gabinetes</a></li>
-          <li><a class="dropdown-item" href="#">Memorias</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="productos.html">Todo</a></li>
-        </ul>
-      </li>
-    
-    
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-link" href="index.html"><img src="img/Logo Pag.png" alt=""></a>
+
+  <!-- Links -->
+  <ul class="navbar-nav p-4">
     <li class="nav-item fs-4">
-      <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i class="fas fa-shopping-cart"></i></a>
+      <a class="nav-link" href="contacto.html">Contacto</a>
     </li>
-  </nav> 
-      
-      <main class="">
-<!----------------------------------------------------------- Modal ------------------------------------------------------>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tu Carrito</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <!---Trabajar con JS para agregar productos-->
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar cambios</button>
-                <button type="button" class="btn btn-success">Comprar</button>
-              </div>
-            </div>
+    
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle fs-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Productos
+      </a>
+      <ul class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="#">Teclados</a></li>
+        <li><a class="dropdown-item" id="Procesadores" href="procesadores.html">Procesadores</a></li>
+        <li><a class="dropdown-item" href="#">Placas de video</a></li>
+        <li><a class="dropdown-item" href="#">Fuentes</a></li>
+        <li><a class="dropdown-item" href="#">Gabinetes</a></li>
+        <li><a class="dropdown-item" href="#">Memorias</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="productos.html">Todo</a></li>
+      </ul>
+    </li>
+  
+<!---------------------------------------Trigger Modal--------------------------------------->
+  <li class="nav-item fs-4">
+    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i class="fas fa-shopping-cart"></i></a>
+  </li>
+</nav> 
+</header>
+
+<body class="indexbk">
+  <section>
+    <!----------------------------------------------------------- Modal ------------------------------------------------------>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tu Carrito</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="#productosModal">
+            
+            <!---Trabajar con JS para agregar productos-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Guardar cambios</button>
+            <button type="button" class="btn btn-success">Comprar</button>
           </div>
         </div>
+      </div>
+    </div>
+</section>
+
+<main class="">
+
         
-      </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        
+</main>
       
       <footer>
 
+        </div>
       </footer>
 
     <script src="bootstrap/bootstrap-5.0.0-beta3-dist/js/bootstrap.bundle.js"></script>
