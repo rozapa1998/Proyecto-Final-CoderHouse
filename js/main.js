@@ -80,8 +80,13 @@ for (const producto of productos){
 
 //-----------------------------------------------Eventos---------------------------------------------
 
-/*let boton = document.getElementById("agregarCarrito")
-      boton.onclick = () =>{agregarCarrito(a)}*/
+let boton = document.getElementById("agregarCarrito")
+   
+/*if (productos.id === 1) {agregarCarrito();}
+
+  boton.onclick = agregarCarrito();{
+    carrito.push(productos[0]);    
+      }*/
 
 
 
@@ -90,27 +95,32 @@ for (const producto of productos){
 
 
 //----------------------------------Visualizacion Carrito---------------------------------------------
-for (const compra of carrito)
+/*for (const compra of carrito)*/
 
-$("#Modal").append(`
+/*$("#Modal").append(`
 <div class="card mb-3" style="max-width: 540px;">
 <div class="row g-0">
   <div class="col-md-4">
-    <img src=${compra.img} alt="...">
+    <img src= alt="...">
   </div>
   <div class="col-md-8">
     <div class="card-body">
-      <h5 class="card-title">${compra.nombre}</h5>
-      <p class="card-text">${compra.descripcion}</p>
-      <p>$${compra.precio}</p>
+      <h5 class="card-title"></h5>
+      <p class="card-text"></p>
+      <p>$</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
 </div>
-</div>`);
+</div>`);*/
 //-----------------------------------------------Carrito---------------------------------------------
 
 //--------------------------Funcion Agregar Productos----------------------------------------
-$( "#agregarCarrito" ).click(function() {
-  carrito.push(producto.nombre)
+$("#agregarCarrito").click(function agregarCarrito() {
+  
+  var productosid1 = productos[0].id;
+
+  if (productosid1 === 1) {
+    carrito.push(productos[0])
+  }
 });
