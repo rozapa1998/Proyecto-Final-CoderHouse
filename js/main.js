@@ -137,7 +137,7 @@ tarjetas.innerHTML = `
  </div>
 `
 
-
+//
 //-----------------------------------------------Eventos---------------------------------------------
 
 let boton = document.getElementById("agregarCarrito")
