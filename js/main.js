@@ -29,8 +29,7 @@ const productos = [
 ];
 
 
-const carrito = [
-  ]
+const carrito = [];
 
 //--------------------------Metodo Find-----------------------------------------------------
 
@@ -58,34 +57,33 @@ const carrito = [
 console.dir(buscarProcesador);*/
 
 
-//--------------------------DOM Cargando Productos-------------------------------------------
-let busqueda = document.querySelector('#resultados')
-
+//--------------------------DOM Cargar productos JQuery----------------------------------------
 for (const producto of productos){
-    $("#productos").append(`
-            <div class="col-lg-4 mb-4">
-                <div class="card">
-                <img src=${producto.img} alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">${producto.nombre}</h5>
-                    <p class="card-text">${producto.descripcion}</p>
-                    <p class="card-text">$${producto.precio}</p>
-                    <button onclick="agregarCarrito(productos.indexOf(nombre))" id="agregarCarrito" href="" class="btn btn-primary">Agregar al Carrito</button>
-                    <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
-                </div>
-            </div>
-        </div>`);
+  $("#productos").append(`
+          <div class="col-lg-4 mb-4">
+              <div class="card">
+              <img id="imagen-producto" src=${producto.img} alt="" class="card-img-top">
+              <div class="card-body">
+                  <h5 class="card-title" id="nombre-producto">${producto.nombre}</h5>
+                  <p class="card-text" id="descripcion-producto">${producto.descripcion}</p>
+                  <p class="card-text" id="precio-producto">$${producto.precio}</p>
+                  <button onclick="agregarAlCarrito(${productos.indexOf(producto)})" id="agregarCarrito" href="" class="btn btn-primary">Agregar al Carrito</button>
+                  <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
+              </div>
+          </div>
+      </div>`);
+
+      
 };
 
 
 //-----------------------------------------------Eventos---------------------------------------------
 
    
-/*if (productos.id === 1) {agregarCarrito();}
-
-  boton.onclick = agregarCarrito();{
-    carrito.push(productos[0]);    
-      }*/
+function agregarAlCarrito(a){
+  carrito.push(productos[a])
+  agregarCarrito();
+}
 
 
 
@@ -96,24 +94,27 @@ for (const producto of productos){
 //----------------------------------Visualizacion Carrito---------------------------------------------
 /*for (const compra of carrito)*/
 function agregarCarrito(){
-
-  $("#Modal").append(`
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src=${productos.img} alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">${productos.nombre}</h5>
-        <p class="card-text">${productos.descripcion}</p>
-        <p>$${productos.precio}</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-  </div>`);
-};
-//-----------------------------------------------Carrito---------------------------------------------
-
-//--------------------------Funcion Agregar Productos----------------------------------------
+  let c = 0;
+      for (let c = 0; c < carrito.length; c++) {
+        const element = carrito[c];
+        $("#Modal").append(`
+        <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src=${element.img} alt="..." style="max-width: 150px;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">${element.nombre}</h5>
+              <p class="card-text">${element.descripcion}</p>
+              <p>$${element.precio}</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+        </div>`);
+      }
+  
+  };
+//-----------------------------------------------Animaciones---------------------------------------------
+$("div").fadeIn();
