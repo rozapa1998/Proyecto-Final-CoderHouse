@@ -70,17 +70,16 @@ for (const producto of productos){
                     <h5 class="card-title">${producto.nombre}</h5>
                     <p class="card-text">${producto.descripcion}</p>
                     <p class="card-text">$${producto.precio}</p>
-                    <button onclick="agregarCarrito(productos.indexOf(0))" id="agregarCarrito" href="" class="btn btn-primary">Agregar al Carrito</button>
+                    <button onclick="agregarCarrito(productos.indexOf(nombre))" id="agregarCarrito" href="" class="btn btn-primary">Agregar al Carrito</button>
                     <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
                 </div>
             </div>
         </div>`);
-}
+};
 
 
 //-----------------------------------------------Eventos---------------------------------------------
 
-let boton = document.getElementById("agregarCarrito")
    
 /*if (productos.id === 1) {agregarCarrito();}
 
@@ -114,15 +113,7 @@ function agregarCarrito(){
     </div>
   </div>
   </div>`);
-}
+};
 //-----------------------------------------------Carrito---------------------------------------------
 
 //--------------------------Funcion Agregar Productos----------------------------------------
-$("#agregarCarrito").click(function agregarCarrito() {
-  
-  var productosid1 = productos[0].id;
-
-  if (productosid1 === 1) {
-    carrito.push(productos[0])
-  }
-});
