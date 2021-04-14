@@ -70,7 +70,7 @@ for (const producto of productos){
                     <h5 class="card-title">${producto.nombre}</h5>
                     <p class="card-text">${producto.descripcion}</p>
                     <p class="card-text">$${producto.precio}</p>
-                    <button id="agregarCarrito" href="" class="btn btn-primary">Agregar al Carrito</button>
+                    <button onclick="agregarCarrito(productos.indexOf(0))" id="agregarCarrito" href="" class="btn btn-primary">Agregar al Carrito</button>
                     <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
                 </div>
             </div>
@@ -96,23 +96,25 @@ let boton = document.getElementById("agregarCarrito")
 
 //----------------------------------Visualizacion Carrito---------------------------------------------
 /*for (const compra of carrito)*/
+function agregarCarrito(){
 
-/*$("#Modal").append(`
-<div class="card mb-3" style="max-width: 540px;">
-<div class="row g-0">
-  <div class="col-md-4">
-    <img src= alt="...">
-  </div>
-  <div class="col-md-8">
-    <div class="card-body">
-      <h5 class="card-title"></h5>
-      <p class="card-text"></p>
-      <p>$</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  $("#Modal").append(`
+  <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src=${productos.img} alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${productos.nombre}</h5>
+        <p class="card-text">${productos.descripcion}</p>
+        <p>$${productos.precio}</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
     </div>
   </div>
-</div>
-</div>`);*/
+  </div>`);
+}
 //-----------------------------------------------Carrito---------------------------------------------
 
 //--------------------------Funcion Agregar Productos----------------------------------------
