@@ -62,22 +62,41 @@ console.dir(buscarProcesador);*/
 
 //--------------------------DOM Cargar productos JQuery----------------------------------------
 for (const producto of productos){
-  $("#productos").append(`
+  /*$("#productos").append(`
           <div class="col-lg-4 mb-4">
-              <div class="card shadow h-100 p-3 mb-5 bg-body rounded">
-              <img id="imagen-producto" src=${producto.img} alt="" class="card-img-top">
-              <div class="card-body">
-                  <h5 class="card-title" id="nombre-producto">${producto.nombre}</h5>
-                      <div class="card card-body">
-                        ${producto.descripcion}
+              <div class="card text-white bg-dark mb-3 h-100">    
+                      <div class="p-3 mb-5 bg-body rounded">
+                          <img id="imagen-producto" src=${producto.img} alt="" class="card-img-top">
+                          <div class="card-body">
+                              <h5 class="card-title" id="nombre-producto">${producto.nombre}</h5>
+                                  <div class="card card-body">
+                                    ${producto.descripcion}
+                                  </div>
+                              <p class="card-text pt-2" id="precio-producto">$${producto.precio}</p>
+                              
+                              <button onclick="agregarAlCarrito(${productos.indexOf(producto)})" id="agregarCarrito"  href="" class="btn btn-primary">Agregar al Carrito</button>
+                              <button href="" class="btn btn-outline-danger btn-sm" onclick="agregarAFavoritos(${productos.indexOf(producto)})"><i class="far fa-heart"></i></button>
+                          </div>
                       </div>
-                  <p class="card-text pt-2" id="precio-producto">$${producto.precio}</p>
-                  
-                  <button onclick="agregarAlCarrito(${productos.indexOf(producto)})" id="agregarCarrito"  href="" class="btn btn-primary">Agregar al Carrito</button>
-                  <button href="" class="btn btn-outline-danger btn-sm" onclick="agregarAFavoritos(${productos.indexOf(producto)})"><i class="far fa-heart"></i></button>
               </div>
+          </div>`);*/
+
+$("#productos").append(`
+        <div class="col-lg-4 mb-4">        
+          <div class="card text-white bg-dark mb-3 h-100">
+              <img id="imagen-producto" src=${producto.img} alt="" class="card-img-top">    
+              <div class="card-header fs-4">${producto.nombre}</div>
+                  <div class="card-body">
+                    <p class="card-title">${producto.descripcion}</p>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                      <div class="p-3">
+                        <button onclick="agregarAlCarrito(${productos.indexOf(producto)})" id="agregarCarrito"  href="" class="btn btn-primary">Agregar al Carrito</button>
+                        <button href="" class="btn btn-outline-danger btn-sm" onclick="agregarAFavoritos(${productos.indexOf(producto)})"><i class="far fa-heart"></i></button>
+                      </div>
+              
           </div>
-      </div>`);
+        </div>`)
 
       
 };

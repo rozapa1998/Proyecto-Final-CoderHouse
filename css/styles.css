@@ -3,11 +3,26 @@
 }
 
 .indexbk{
-    background-image: url(../img/1.png);
-    background-size: 105%;
+    background: url(../img/Fondo\ Index\ perfect.png) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
 }
 
 .contactobk{
-    background-image: url(../img/2.png);
-    background-size: 102%;
+    background: url(../img/Fondo\ Contacto.png) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+
+.productosbk{
+    background: url(../img/Fondo\ productos.png) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
 }
