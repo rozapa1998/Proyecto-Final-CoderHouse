@@ -31,6 +31,9 @@ const productos = [
 
 const carrito = [];
 
+
+const favoritos = [];
+
 //--------------------------Metodo Find-----------------------------------------------------
 
 /*$( "#Procesadores" ).click(function() {
@@ -61,14 +64,17 @@ console.dir(buscarProcesador);*/
 for (const producto of productos){
   $("#productos").append(`
           <div class="col-lg-4 mb-4">
-              <div class="card">
+              <div class="card shadow h-100 p-3 mb-5 bg-body rounded">
               <img id="imagen-producto" src=${producto.img} alt="" class="card-img-top">
               <div class="card-body">
                   <h5 class="card-title" id="nombre-producto">${producto.nombre}</h5>
-                  <p class="card-text" id="descripcion-producto">${producto.descripcion}</p>
-                  <p class="card-text" id="precio-producto">$${producto.precio}</p>
-                  <button onclick="agregarAlCarrito(${productos.indexOf(producto)})" id="agregarCarrito" href="" class="btn btn-primary">Agregar al Carrito</button>
-                  <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
+                      <div class="card card-body">
+                        ${producto.descripcion}
+                      </div>
+                  <p class="card-text pt-2" id="precio-producto">$${producto.precio}</p>
+                  
+                  <button onclick="agregarAlCarrito(${productos.indexOf(producto)})" id="agregarCarrito"  href="" class="btn btn-primary">Agregar al Carrito</button>
+                  <button href="" class="btn btn-outline-danger btn-sm" onclick="agregarAFavoritos(${productos.indexOf(producto)})"><i class="far fa-heart"></i></button>
               </div>
           </div>
       </div>`);
@@ -83,18 +89,28 @@ for (const producto of productos){
 function agregarAlCarrito(a){
   carrito.push(productos[a])
   agregarCarrito();
+  AlertaSucces();
+  carrito.pop();
+}
+
+
+function agregarAFavoritos(c){
+  favoritos.push(productos[c])
+  agregarFavoritos();
+  AlertaSuccesFavoritos ();
+  favoritos.pop();
 }
 
 
 
-
-
+//----------------------------------Segundos---------------------------------------
+const moonLanding = new Date()
+console.log(moonLanding.getSeconds());
 
 
 //----------------------------------Visualizacion Carrito---------------------------------------------
 /*for (const compra of carrito)*/
 function agregarCarrito(){
-  let c = 0;
       for (let c = 0; c < carrito.length; c++) {
         const element = carrito[c];
         $("#Modal").append(`
@@ -108,7 +124,7 @@ function agregarCarrito(){
               <h5 class="card-title">${element.nombre}</h5>
               <p class="card-text">${element.descripcion}</p>
               <p>$${element.precio}</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small class="text-muted"></small></p>
             </div>
           </div>
         </div>
@@ -116,4 +132,38 @@ function agregarCarrito(){
       }
   
   };
-//-----------------------------------------------Animaciones---------------------------------------------
+//-----------------------------------------------Favoritos---------------------------------------------
+function agregarFavoritos(){
+  for (let b = 0; b < favoritos.length; b++){
+    const element2 = favoritos[b];
+  $("#favoritos").append(`
+            <div class="card" style="width: 18rem;">
+            <img src="${element2.img}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">${element2.nombre}</h5>
+              <p class="card-text">$${element2.precio}</p>
+              <button onclick="agregarAlCarrito(${productos.indexOf(element2)})" id="agregarCarrito"  href="" class="btn btn-primary">Agregar al Carrito</button>
+            </div>
+          </div>`)
+  }
+}
+
+//-----------------------------------------------Alertas-------------------------------------------------
+function AlertaSucces (){
+  $("#alert-succes").append(`<section>
+  <div class="alert alert-success fixed-top alert-dismissible fade show" aria-hidden="true" id="alert-succes" role="alert">
+    El articulo fue agregado con exito a tu carrito!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</section>`)
+}
+
+function AlertaSuccesFavoritos (){
+  $("#alert-succes").append(`<section>
+  <div class="alert alert-success fixed-top alert-dismissible fade show" aria-hidden="true" id="alert-succes" role="alert">
+    El articulo fue agregado con exito a tu Favoritos!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</section>`)
+}
+

@@ -12,6 +12,11 @@
     <title>Tech Shop</title>
 </head>
 <header>
+  <!--Alertas de carrito-->
+  <section>
+    <div id="alert-succes">
+    </div>
+  </section>
 <!----------------------------------------------------------- Navbar ------------------------------------------------------>  
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
@@ -31,7 +36,7 @@
       </a>
       <ul class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
         <li><a class="dropdown-item" href="#">Teclados</a></li>
-        <li><a class="dropdown-item" href="procesadores.html">Procesadores</a></li>
+        <li><a class="dropdown-item" href="#">Procesadores</a></li>
         <li><a class="dropdown-item" href="#">Placas de video</a></li>
         <li><a class="dropdown-item" href="#">Fuentes</a></li>
         <li><a class="dropdown-item" href="#">Gabinetes</a></li>
@@ -40,15 +45,31 @@
         <li><a class="dropdown-item" href="productos.html">Todo</a></li>
       </ul>
     </li>
+    
+    <li class="nav-item dropdown">
+      <a class="nav-link fs-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-heart"></i>
+      </a>
+      <ul class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
+        <li id="favoritos">
+        
+        </li>
+      </ul>
+    </li>
+    
+    
   
 <!---------------------------------------Trigger Modal--------------------------------------->
   <li class="nav-item fs-4">
     <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i class="fas fa-shopping-cart"></i></a>
   </li>
+
+  
 </nav> 
 </header>
 
 <body class="">
+  
   <section>
     <!----------------------------------------------------------- Modal ------------------------------------------------------>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -92,7 +113,6 @@
 
     <script src="bootstrap/bootstrap-5.0.0-beta3-dist/js/bootstrap.bundle.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/prueba1.js"></script>
     <script src="js/pedido.js"></script>
 </body>
 </html>
