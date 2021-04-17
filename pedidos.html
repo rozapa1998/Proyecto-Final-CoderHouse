@@ -109,42 +109,42 @@
             <h1 class="pedidosTxt">Este es el resumen de tu carrito!</h1>
         </div>
         <div class="col">
-            <table class="table table-dark table-hover">
-                <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          
-            </table>
-
+          <table class="table table-dark table-hover">
+            <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+          </tr>
+        </thead>
+        <tbody id="pedidos">
+        </tbody>
+        
+        </table>
         </div>
-
+        <div class="position-relative">
+            <div class="pt-5">
+              <button class="btn btn-primary position-absolute bottom-0 end-0">Terminar Pedido</button>
+            </div>
+        </div>
+        
     </div>
 
-</div>   
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="https://formspree.io/f/{form_id}" method="post">
+        <label for="email">Your Email</label>
+        <input name="Email" id="email" type="email">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+  </div>
+</div>
 
 
 

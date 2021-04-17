@@ -49,6 +49,8 @@
 /*---------------------------------------Index-------------------------------------------------------*/
 .ajustarIndex{
     margin-top: 180px;
+    width: auto;
+    height: auto;
 }
 
 .zoom {
@@ -70,6 +72,27 @@
       margin-left: 750px;
   }
 
+    @media all and (max-width: 700px){
+        .ajustarIndex{
+        width:70%;
+        height:auto;
+        margin-left:10px;
+        }
+        .mediasIndex{
+            padding-bottom: 80px;
+        }
+        .mediasFooterIndex{
+        
+        }
+        div{
+            width:auto;
+            height:auto;
+        }
+        .row{
+            width:auto;
+            height:auto;
+        }
+    }
 /*---------------------------------------Footer Index-------------------------------------------------------*/
   .redes{
       font-size: 60px;
@@ -110,6 +133,12 @@
 .ajusteProductos{
     margin-top: 100px;
 }
+.zoom2 {
+    transition: transform .2s; /* Animation */
+  }
+  .zoom2:hover {
+    transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
 
 /*---------------------------------------Contacto-------------------------------------------------------*/
 .contactoTxtTitulo{
