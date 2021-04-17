@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/8ea0deaea7.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <title>Tech Shop</title>
@@ -72,7 +73,7 @@
   </nav>
 </header>
 
-<body class="indexbk">
+<body class="pedidosbk">
   <!--Alertas de carrito-->
   <section>
     <div id="alert-succes">
@@ -93,6 +94,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Guardar cambios</button>
             <a href="pedidos.html" type="button" class="btn btn-success">Comprar</a>
           </div>
         </div>
@@ -101,24 +103,48 @@
 </section>
 
 <main class="">
+<div class="container">
+    <div class="row">
+        <div class="col-12 ajustarPedidos">
+            <h1 class="pedidosTxt">Este es el resumen de tu carrito!</h1>
+        </div>
+        <div class="col">
+            <table class="table table-dark table-hover">
+                <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          
+            </table>
 
- <!--Titulo de la marca-->
-  <div class="container">
-   <div class="row">
-     <div class="col-12">
-          <img class="ajustarIndex zoom" src="img/LogoIndexPerfect.png" alt="">
-     </div>
-   </div>
- </div>
- <!--Informacion-->
- <div class="container">
-  <div class="row">
-    <div class="col-6 ajustarTextIndex">
-        <p class="textIndex">"Tenemos lo que buscas"</p>
+        </div>
+
     </div>
 
-  </div>
- </div>       
+</div>   
 
 
 
@@ -140,12 +166,7 @@
 
 
 
-  <div>
-    <div class="fixed-bottom  wappPosition zoom">
-      <a class="wappSize redesA" href=""><i class="fab fa-whatsapp"></i></a>
-    </div>
-  </div>
-  
+
 
 
         
@@ -153,25 +174,9 @@
         
 </main>
       
-      <footer class="ajustarFooter ajustarFooterX">
-<div class="container">
-  <div class="row">
-    <div class="col-3">
-      <a class="redesA" href=""><i class="fab fa-instagram redes zoom"></i></a>
-    </div>
-    <div class="col-3">
-      <a class="redesA" href=""><i class="fab fa-facebook-square redes zoom"></i></a>
-    </div>
-    <div class="col-3">
-      <a class="redesA" href=""><i class="fab fa-github redes zoom"></i></a>
-    </div>
-    <div class="col-3">
-      <a class="redesA" href=""><i class="fab fa-twitter-square redes zoom"></i></a>
-    </div> 
+      <footer>
 
-  </div>
-
-</div>
+        </div>
       </footer>
 
     <script src="bootstrap/bootstrap-5.0.0-beta3-dist/js/bootstrap.bundle.js"></script>

@@ -102,7 +102,7 @@ $("#productos").append(`
 };
 
 
-//-----------------------------------------------Eventos---------------------------------------------
+//-----------------------------------------------Funciones de Favoritos y Carrito---------------------------------------------
 
    
 function agregarAlCarrito(a){
@@ -114,6 +114,7 @@ function agregarAlCarrito(a){
 
 
 function agregarAFavoritos(c){
+  BorrarMensaje();
   favoritos.push(productos[c])
   agregarFavoritos();
   AlertaSuccesFavoritos ();
@@ -122,9 +123,12 @@ function agregarAFavoritos(c){
 
 
 
-//----------------------------------Segundos---------------------------------------
-const moonLanding = new Date()
-console.log(moonLanding.getSeconds());
+//----------------------------------Animaciones---------------------------------------
+
+$("h3").fadeIn(1000);
+$("p").fadeIn(1000);
+
+
 
 
 //----------------------------------Visualizacion Carrito---------------------------------------------
@@ -132,6 +136,7 @@ console.log(moonLanding.getSeconds());
 function agregarCarrito(){
       for (let c = 0; c < carrito.length; c++) {
         const element = carrito[c];
+        const segundos = new Date()
         $("#Modal").append(`
         <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
@@ -143,7 +148,7 @@ function agregarCarrito(){
               <h5 class="card-title">${element.nombre}</h5>
               <p class="card-text">${element.descripcion}</p>
               <p>$${element.precio}</p>
-              <p class="card-text"><small class="text-muted"></small></p>
+              <p class="card-text">Agregado hace ${segundos.getSeconds(element)} seg <small class="text-muted"></small></p>
             </div>
           </div>
         </div>
@@ -151,22 +156,47 @@ function agregarCarrito(){
       }
   
   };
-//-----------------------------------------------Favoritos---------------------------------------------
+//-----------------------------------------------FAVORITOS---------------------------------------------
 function agregarFavoritos(){
   for (let b = 0; b < favoritos.length; b++){
     const element2 = favoritos[b];
   $("#favoritos").append(`
-            <div class="card" style="width: 18rem;">
+            <div style="width: 18rem;">
+            <div class="col-12 p-2">
+            <div class="card">
             <img src="${element2.img}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">${element2.nombre}</h5>
               <p class="card-text">$${element2.precio}</p>
-              <button onclick="agregarAlCarrito(${productos.indexOf(element2)})" id="agregarCarrito"  href="" class="btn btn-primary">Agregar al Carrito</button>
+              <button onclick="agregarAlCarrito(${favoritos.indexOf(element2)})"  href="" class="btn btn-primary">Agregar al Carrito</button>
+            </div>
             </div>
           </div>`)
   }
 }
 
+//-----------------------------Control de flujo de Favoritos---------------------------------------------
+
+  if (favoritos.indexOf(productos) === -1) {
+    $("#mensaje").append(`
+    <div style="width: 18rem;">
+    <div class="col-12 p-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Nada por aqui</h5>
+          <p class="card-text">Para agregar productos toca el corazon dentro de su tarjeta! <i class="fas fa-heart"></i></p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    </div>
+    `)
+
+  }
+
+  function BorrarMensaje (){
+    $("#mensaje").remove();
+}
 //-----------------------------------------------Alertas-------------------------------------------------
 function AlertaSucces (){
   $("#alert-succes").append(`<section>
@@ -185,4 +215,3 @@ function AlertaSuccesFavoritos (){
   </div>
 </section>`)
 }
-

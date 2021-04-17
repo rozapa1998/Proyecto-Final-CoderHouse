@@ -1,7 +1,7 @@
 .minor{
     size: 10px;
 }
-
+/*---------------------------------------Backgrounds-------------------------------------------------------*/
 .indexbk{
     background: url(../img/Fondo\ Index\ perfect.png) no-repeat center center fixed; 
         -webkit-background-size: cover;
@@ -25,4 +25,136 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+}
+
+.pedidosbk{
+    background: url(../img/Fondo\ pedidos.png) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+/*---------------------------------------Pedidos-------------------------------------------------------*/
+.pedidosTxt{
+    font-family: 'Rajdhani', sans-serif;
+    color: aliceblue;
+    font-size: 75px;
+}
+
+.ajustarPedidos{
+    margin-top: 150px;
+}
+
+/*---------------------------------------Index-------------------------------------------------------*/
+.ajustarIndex{
+    margin-top: 180px;
+}
+
+.zoom {
+    transition: transform .3s; /* Animation */
+  }
+  .zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
+  .textIndex{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 60px;
+    color: black;
+    font-style: italic;
+  }
+
+  .ajustarTextIndex{
+      margin-top: 200px;
+      margin-left: 750px;
+  }
+
+/*---------------------------------------Footer Index-------------------------------------------------------*/
+  .redes{
+      font-size: 60px;
+  }
+
+  .ajustarFooter{
+      margin-top: 105px;
+  }
+
+  .ajustarFooterX{
+    margin-left: 100px;
+}
+
+  .redesA{
+      color:rgb(41, 42, 43);
+  }
+
+  .redesA :hover{
+    color:rgb(41, 42, 43);
+  }
+/*---------------------------------------Footer Contacto-------------------------------------------------------*/
+.redes{
+    font-size: 60px;
+}
+
+.ajustarFooter{
+    margin-top: 105px;
+}
+
+.redesB{
+    color:rgb(252, 252, 252);
+}
+
+.redesB :hover{
+  color:rgb(255, 255, 255);
+}
+/*---------------------------------------Productos-------------------------------------------------------*/
+.ajusteProductos{
+    margin-top: 100px;
+}
+
+/*---------------------------------------Contacto-------------------------------------------------------*/
+.contactoTxtTitulo{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 60px;
+    color: aliceblue;
+    margin-top: 150px;
+}
+
+.contactoTxt{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 30px;
+    color: aliceblue;
+    font-style: italic;
+}
+
+.contactoMenor{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+    color: aliceblue;
+    font-style: italic;
+}
+
+.zoom1 {
+    transition: transform .3s; /* Animation */
+  }
+  .zoom1:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
+.contactoTitulos{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 45px;
+}
+
+/*---------------------------------------Whapp-------------------------------------------------------*/
+
+.wappSize{
+    font-size: 60px;
+    color:rgb(41, 42, 43);
+}
+
+
+.wappPosition{
+    position:fixed;
+    margin-left: 1640px;
+    margin-bottom: 10px;
 }
