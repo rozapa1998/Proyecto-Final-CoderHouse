@@ -34,41 +34,38 @@ const carrito = [];
 
 const favoritos = [];
 
+const Pedidos = [];
 
-const procesadores = [];
 
-const acessorios = [];
 
-const PlacaDeVideo = [];
+//-----------------------------------------------Funciones de Favoritos y Carrito---------------------------------------------
 
-const Gabinete = [];
+   
+function agregarAlCarrito(a){
+  Pedidos.push(productos[a]);
+  localStorage.setItem('datos', JSON.stringify(Pedidos))
+  carrito.push(productos[a]);
+  agregarCarrito();
+  AlertaSucces();
+  carrito.pop();
+}
 
-const Mother = [];
 
-const Memoria = [];
-
+function agregarAFavoritos(c){
+  BorrarMensaje();
+  favoritos.push(productos[c])
+  agregarFavoritos();
+  AlertaSuccesFavoritos ();
+  favoritos.pop();
+}
 //--------------------------Metodo Find-----------------------------------------------------
 
-  /*for (const buscarProcesador of productos){
-    $("#procesadores").append(`
-            <div class="col-lg-4 mb-4">
-            ${buscarProcesador.id}
-                <div class="card">
-                <img src=${buscarProcesador.img} alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">${buscarProcesador.nombre}</h5>
-                    <p class="card-text">${buscarProcesador.descripcion}</p>
-                    <p class="card-text">$${buscarProcesador.precio}</p>
-                    <button id="agregarCarrito" href="" class="btn btn-primary">Agregar al Carrito</button>
-                    <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
-                </div>
-            </div>
-        </div>`);
-}*/
+
 
 
 //--------------------------Procesadores-----------------------------------------------------
-
+var guardado = localStorage.getItem('datos');
+console.log('Pedido: ', JSON.parse(guardado));
 
 
 //--------------------------DOM Cargar productos JQuery----------------------------------------
@@ -80,9 +77,10 @@ $("#productos").append(`
               <div class="card-header fs-4">${producto.nombre}</div>
                   <div class="card-body">
                     <p class="card-title">${producto.descripcion}</p>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
                   </div>
                       <div class="p-3">
+                      <p class="card-header fs-4">$${producto.precio}</p>
                         <button onclick="agregarAlCarrito(${productos.indexOf(producto)})" id="agregarCarrito"  href="" class="btn btn-primary">Agregar al Carrito</button>
                         <button href="" class="btn btn-outline-danger btn-sm" onclick="agregarAFavoritos(${productos.indexOf(producto)})"><i class="far fa-heart"></i></button>
                       </div>
@@ -99,32 +97,36 @@ function Accesorios(){
 //$("#Accesorios").append(``);
 
 
-//-----------------------------------------------Funciones de Favoritos y Carrito---------------------------------------------
-
-   
-function agregarAlCarrito(a){
-  carrito.push(productos[a]);
-  agregarCarrito();
-  agregarPedidos();
-  AlertaSucces();
-  carrito.pop();
-}
+//--------------------------------------AJAX------------------------------------------
 
 
-function agregarAFavoritos(c){
-  BorrarMensaje();
-  favoritos.push(productos[c])
-  agregarFavoritos();
-  AlertaSuccesFavoritos ();
-  favoritos.pop();
-}
+const URLJSON = "datos.json"
+
+$("#botonAJAX").append('<button id="btn1">JSON</button>');
+
+$("#btn1").click(() => { 
+$.getJSON(URLJSON, function (respuesta, estado) {
+    if(estado === "success"){
+      let misDatos = respuesta;
+      for (const dato of misDatos) {
+        $("#prueba").append(`<div>
+                                <p>${dato.name}</p>
+                                <p> ${dato.email}</p>
+                            </div>`)
+      }  
+    }
+    });
+});
+
+
 
 
 
 //----------------------------------Animaciones---------------------------------------
 
-$("h3").fadeIn(1000);
-$("p").fadeIn(1000);
+$("h3").fadeIn(1800);
+$("p").fadeIn(2000);
+//$("#alert-succes").fadeOut(10000);
 
 
 
@@ -156,6 +158,8 @@ function agregarCarrito(){
   };
 
   //----------------------------------Visualizacion Pedidos---------------------------------------------
+  
+
 
   function agregarPedidos(){
     for (let h = 0; h < carrito.length; h++) {
@@ -215,9 +219,11 @@ function agregarFavoritos(){
     $("#mensaje").remove();
 }
 //-----------------------------------------------Alertas-------------------------------------------------
+
+
 function AlertaSucces (){
   $("#alert-succes").append(`<section>
-  <div class="alert alert-success fixed-top alert-dismissible fade show" aria-hidden="true" id="alert-succes" role="alert">
+  <div class="alert alert-success fixed-bottom alert-dismissible fade show" aria-hidden="true" id="alert-succes" role="alert">
     El articulo fue agregado con exito a tu carrito!
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
@@ -226,12 +232,14 @@ function AlertaSucces (){
 
 function AlertaSuccesFavoritos (){
   $("#alert-succes").append(`<section>
-  <div class="alert alert-success fixed-top alert-dismissible fade show" aria-hidden="true" id="alert-succes" role="alert">
+  <div class="alert alert-success fixed-bottom alert-dismissible fade show" aria-hidden="true" id="alert-succes" role="alert">
     El articulo fue agregado con exito a tu Favoritos!
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 </section>`)
 }
+
+
 
 
 //----------------------------------------Mail de confirmacion------------------------------------------------

@@ -42,9 +42,16 @@
     font-size: 75px;
 }
 
+.pedidosTxt2{
+    font-family: 'Rajdhani', sans-serif;
+    color: aliceblue;
+    font-size: 15px;
+}
+
 .ajustarPedidos{
     margin-top: 150px;
 }
+
 
 /*---------------------------------------Index-------------------------------------------------------*/
 .ajustarIndex{
@@ -81,9 +88,7 @@
         .mediasIndex{
             padding-bottom: 80px;
         }
-        .mediasFooterIndex{
         
-        }
         div{
             width:auto;
             height:auto;

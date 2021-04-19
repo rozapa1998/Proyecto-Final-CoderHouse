@@ -123,11 +123,7 @@
         
         </table>
         </div>
-        <div class="position-relative">
-            <div class="pt-5">
-              <button class="btn btn-primary position-absolute bottom-0 end-0">Terminar Pedido</button>
-            </div>
-        </div>
+        
         
     </div>
 
@@ -136,12 +132,23 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <form action="https://formspree.io/f/{form_id}" method="post">
-        <label for="email">Your Email</label>
-        <input name="Email" id="email" type="email">
-        <button type="submit">Submit</button>
-      </form>
+      <form>
+        <div class="form-group">
+          <label class="fs-4 pedidosTxt" for="exampleInputEmail1">Correo Electronico</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo123@algo.com">
+          <small id="emailHelp" class="form-text text-muted pedidosTxt2">No compartiremos esta informacion con nadie mas.</small>
+        </div>
+        <div id="botonAJAX">
+
+        </div>
+        <!----<button type="submit" class="btn btn-primary">Enviar</button>--->
+    </form>
     </div>
+
+  </div>
+  <div class="row" id="prueba">
+  
+    
 
   </div>
 </div>
