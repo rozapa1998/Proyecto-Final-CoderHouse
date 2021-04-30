@@ -101,13 +101,38 @@
     </div>
 </section>
 
-<!----------------------------------------------------------- Modal MP------------------------------------------------------>
+<!----------------------------------------------------------- Modal Wpp------------------------------------------------------>
 <div class="modal fade" id="ModalMP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      
+      <div class="modal-header">
+        <h5 class="modal-title">Datos de Envio</h5>
+      </div>
+      <div class="modal-body">
+        <form id ="formulario">
+          <div class="mb-3">
+            <label for="exampleInputNombre" class="form-label">Nombres</label>
+            <input type="text" class="form-control" id="nombre">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputNombre" class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Direccion Email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">E-mail</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputTel" class="form-label">Telefono</label>
+            <input type="tel" class="form-control" id="telefono">
+            <div id="telHelp" class="form-text">Celular</div>
+          </div>
+          <button id="submit" type="submit" class="btn btn-success"><i class="fab fa-whatsapp"></i> Enviar WhatsApp</button>
+        </form>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -122,10 +147,48 @@
   
       </main>
       
-      <footer>
-
-      </footer>
+      <footer class="ajustarFooter">
+        <nav class="navbar-nav navbar-nav-scroll navbar-dark bg-dark position-sticky pb-3">
+          <!-- Navbar content -->
+          <div class="container">
+            <div class="row">
+              <div class="col pt-2 ms-5" >
+                <a class="redesB" href=""><i class="fab fa-instagram redes zoom"></i></a>
+              </div>
+              <div class="col pt-2 ms-5">
+                <a class="redesB" href=""><i class="fab fa-facebook-square redes zoom"></i></a>
+              </div>
+              <div class="col pt-2 ms-5">
+                <a class="redesB" href=""><i class="fab fa-github redes zoom"></i></a>
+              </div>
+              <div class="col pt-2 ms-5">
+                <a class="redesB" href=""><i class="fab fa-twitter-square redes zoom"></i></a>
+              </div>
+              <div class="col pt-2 ms-5">
+                <a class="redesB" href=""><i class="fab fa-whatsapp redes zoom"></i></i></a>
+              </div>  
+          
+            </div>
+          </div>
+        </nav>
+        
+      
+      </div>
+            </footer>
     <script src="bootstrap/bootstrap-5.0.0-beta3-dist/js/bootstrap.bundle.js"></script>
     <script src="js/main.js"></script>
+    
+    <script type="text/javascript">
+      $(".box-input input").on("focus", function(){
+          $(this).addClass("focus");
+      });
+
+      $(".box-input input").on("blur", function(){
+          if($(this).val() == ""){
+              $(this).removeClass("focus");
+          }
+      });
+
+  </script>
 </body>
 </html>

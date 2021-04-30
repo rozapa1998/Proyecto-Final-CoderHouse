@@ -52,8 +52,6 @@ function agregarAlCarrito(a){
   carrito.pop();
 }
 
-console.log(carrito);
-
 
 function agregarAFavoritos(c){
   BorrarMensaje();
@@ -109,7 +107,6 @@ $("p").fadeIn(2000);
 
 
 
-
 //----------------------------------Visualizacion Carrito---------------------------------------------
 function agregarCarrito(){
       for (let c = 0; c < carrito.length; c++) {
@@ -124,7 +121,22 @@ function agregarCarrito(){
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">${element.nombre}</h5>
-              <p class="card-text">${element.descripcion}</p>
+              
+              
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Descripcion
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                    <p class="card-text">${element.descripcion}</p>
+                  </div>
+                </div>
+              </div>
+              
               <p>$${element.precio}</p>
               <p class="card-text">Agregado hace ${segundos.getSeconds(element)} seg <small class="text-muted"></small></p>
             </div>
@@ -183,16 +195,18 @@ function agregarFavoritos(){
     $("#alert-succes").append(`<section>
     <div class="alert alert-success fixed-bottom alert-dismissible fade show" aria-hidden="true" id="alert-succes1" role="alert">
       El articulo fue agregado con exito a tu carrito!
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   </section>`)
+  
+  
   }
   
   function AlertaSuccesFavoritos (){
     $("#alert-succes").append(`<section>
     <div class="alert alert-success fixed-bottom alert-dismissible fade show" aria-hidden="true" id="alert-succes" role="alert">
       El articulo fue agregado con exito a tu Favoritos!
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   </section>`)
   }
@@ -202,3 +216,41 @@ function agregarFavoritos(){
 
 //----------------------------------------Mail de confirmacion------------------------------------------------
 
+function Wapp() {
+  if (sessionStorage.desktop)
+      return false;
+  else if (localStorage.mobile)
+      return true;
+  var mobile = ['iphone', 'ipad', 'android', 'blackberry', 'nokia', 'opera mini', 'windows mobile', 'windows phone', 'iemobile'];
+  for (var i in mobile)
+      if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0) return true;
+  return false;
+}
+
+const formulario = document.querySelector('#formulario');
+const buttonSubmit = document.querySelector('#submit');
+const urlDesktop = 'https://web.whatsapp.com/';
+const urlMobile = 'whatsapp://';
+const telefono = '+5491168165044';
+
+formulario.addEventListener('submit', (event) => {
+  event.preventDefault()
+  buttonSubmit.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>'
+  buttonSubmit.disabled = true
+  setTimeout(() => {
+      let nombre = document.querySelector('#nombre').value
+      var list= document.querySelectorAll(".minodo"),
+        AS= Array.from(list)
+                      .map(element=>element.textContent);
+      let apellidos = document.querySelector('#apellidos').value
+      let email = document.querySelector('#email').value
+      let mensaje = 'send?phone=' + telefono + '&text=*_Resumen de Pedido_*%0A*Nombre:*%0A' + nombre + " " + apellidos + '%0A*Correo electronico*%0A' + email + '' + '%0A*Pedido:*%0A' + AS.join(', ') + ''
+      if(Wapp()) {
+          window.open(urlMobile + mensaje, '_blank')
+      }else{
+          window.open(urlDesktop + mensaje, '_blank')
+      }
+      buttonSubmit.innerHTML = '<i class="fab fa-whatsapp"></i> Enviar WhatsApp'
+      buttonSubmit.disabled = false
+  }, 3000);
+});
