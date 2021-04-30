@@ -17,6 +17,9 @@ class Producto {
 }
 
 
+//--------------------------MP-------------------------------------------------
+
+
 
 //--------------------------Array de Objetos-------------------------------------------------
 const productos = [
@@ -34,7 +37,7 @@ const carrito = [];
 
 const favoritos = [];
 
-const Pedidos = [];
+const Total = [];
 
 
 
@@ -42,13 +45,14 @@ const Pedidos = [];
 
    
 function agregarAlCarrito(a){
-  Pedidos.push(productos[a]);
-  localStorage.setItem('datos', JSON.stringify(Pedidos))
   carrito.push(productos[a]);
+  Total.push(productos[a].precio);
   agregarCarrito();
   AlertaSucces();
   carrito.pop();
 }
+
+console.log(carrito);
 
 
 function agregarAFavoritos(c){
@@ -58,14 +62,22 @@ function agregarAFavoritos(c){
   AlertaSuccesFavoritos ();
   favoritos.pop();
 }
-//--------------------------Metodo Find-----------------------------------------------------
 
 
 
+//-----------------------------------------Calcular Total----------------------------------------
+function TotalCompra(){
+  const reductor = (x, y) => x + y;
+  x = Total.reduce(reductor);
+  $("#TotalCompra").append(`
+  <p class="card-header fs-4" id = "TotalParcial">Total: $${x}</p>
+  `)
+  
+}
 
-//--------------------------Procesadores-----------------------------------------------------
-var guardado = localStorage.getItem('datos');
-console.log('Pedido: ', JSON.parse(guardado));
+$("#CalcularTotalBtn").append(`
+<button onclick="TotalCompra()" id="TotalBtn"  href="" class="btn btn-primary fs-5">Calcular Total</button>
+`)
 
 
 //--------------------------DOM Cargar productos JQuery----------------------------------------
@@ -90,49 +102,15 @@ $("#productos").append(`
 
       
 };
-function Accesorios(){
-  
-}
-
-//$("#Accesorios").append(``);
-
-
-//--------------------------------------AJAX------------------------------------------
-
-
-const URLJSON = "datos.json"
-
-$("#botonAJAX").append('<button id="btn1">JSON</button>');
-
-$("#btn1").click(() => { 
-$.getJSON(URLJSON, function (respuesta, estado) {
-    if(estado === "success"){
-      let misDatos = respuesta;
-      for (const dato of misDatos) {
-        $("#prueba").append(`<div>
-                                <p>${dato.name}</p>
-                                <p> ${dato.email}</p>
-                            </div>`)
-      }  
-    }
-    });
-});
-
-
-
-
-
 //----------------------------------Animaciones---------------------------------------
-
 $("h3").fadeIn(1800);
 $("p").fadeIn(2000);
-//$("#alert-succes").fadeOut(10000);
+
 
 
 
 
 //----------------------------------Visualizacion Carrito---------------------------------------------
-/*for (const compra of carrito)*/
 function agregarCarrito(){
       for (let c = 0; c < carrito.length; c++) {
         const element = carrito[c];
@@ -156,27 +134,6 @@ function agregarCarrito(){
       }
   
   };
-
-  //----------------------------------Visualizacion Pedidos---------------------------------------------
-  
-
-
-  function agregarPedidos(){
-    for (let h = 0; h < carrito.length; h++) {
-      let num = 0
-      var contando = num + 1 ;
-      const element = carrito[h];
-      $("pedidos").append(`
-    <tr>
-      <th scope="row">${contando}</th>
-      <td>${element.nombre}</td>
-      <td>${element.precio}</td>
-      <td>$ ${element.precio}</td>
-    </tr>
-    `)
-
-    }
-  }
 //-----------------------------------------------FAVORITOS---------------------------------------------
 function agregarFavoritos(){
   for (let b = 0; b < favoritos.length; b++){
@@ -204,7 +161,7 @@ function agregarFavoritos(){
     <div class="col-12 p-2">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Nada por aqui</h5>
+          <h5 class="card-title fs-4">Nada por aqui</h5>
           <p class="card-text">Para agregar productos toca el corazon dentro de su tarjeta! <i class="fas fa-heart"></i></p>
           <p></p>
         </div>
@@ -221,23 +178,24 @@ function agregarFavoritos(){
 //-----------------------------------------------Alertas-------------------------------------------------
 
 
-function AlertaSucces (){
-  $("#alert-succes").append(`<section>
-  <div class="alert alert-success fixed-bottom alert-dismissible fade show" aria-hidden="true" id="alert-succes" role="alert">
-    El articulo fue agregado con exito a tu carrito!
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-</section>`)
-}
 
-function AlertaSuccesFavoritos (){
-  $("#alert-succes").append(`<section>
-  <div class="alert alert-success fixed-bottom alert-dismissible fade show" aria-hidden="true" id="alert-succes" role="alert">
-    El articulo fue agregado con exito a tu Favoritos!
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-</section>`)
-}
+  function AlertaSucces (){
+    $("#alert-succes").append(`<section>
+    <div class="alert alert-success fixed-bottom alert-dismissible fade show" aria-hidden="true" id="alert-succes1" role="alert">
+      El articulo fue agregado con exito a tu carrito!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </section>`)
+  }
+  
+  function AlertaSuccesFavoritos (){
+    $("#alert-succes").append(`<section>
+    <div class="alert alert-success fixed-bottom alert-dismissible fade show" aria-hidden="true" id="alert-succes" role="alert">
+      El articulo fue agregado con exito a tu Favoritos!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </section>`)
+  }
 
 
 
