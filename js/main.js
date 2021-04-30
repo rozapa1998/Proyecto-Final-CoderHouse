@@ -239,10 +239,13 @@ formulario.addEventListener('submit', (event) => {
   buttonSubmit.disabled = true
   setTimeout(() => {
       let nombre = document.querySelector('#nombre').value
-      let pedido = document.getElementById("Modal").innerHTML
+      let pedido = document.getElementById("Modal").innerText
+      const reductor = (x, y) => x + y;
+      let total = Total.reduce(reductor);
       let apellidos = document.querySelector('#apellidos').value
+      let direccion = document.querySelector('#direccion').value
       let email = document.querySelector('#email').value
-      let mensaje = 'send?phone=' + telefono + '&text=*_Resumen de Pedido_*%0A*Nombre:*%0A' + nombre + " " + apellidos + '%0A*Correo electronico*%0A' + email + '' + '%0A*Pedido: *%0A' + pedido + ''
+      let mensaje = 'send?phone=' + telefono + '&text=*_Resumen de Pedido_*%0A*Nombre:*%0A' + nombre + " " + apellidos + '%0A*Correo electronico*%0A' + email + '' + '%0A*Direccion:*%0A' +direccion + '%0A*Pedido:*%0A' + pedido +'%0A*Total:*%0A' + "$" + total + ''
       if(Wapp()) {
           window.open(urlMobile + mensaje, '_blank')
       }else{
